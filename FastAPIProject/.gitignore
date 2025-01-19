@@ -1,0 +1,23 @@
+# 忽略JetBrains IDE 目录
+.idea/
+
+# 忽略Python字节码文件
+__pycache__/
+*.pyc
+
+# 忽略虚拟环境目录
+venv/
+
+# 忽略数据库迁移目录
+migrations/
+
+# 忽略macOS系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 其他macOS系统文件
+Icon?
+._*
+.Spotlight-V100
+.Trashes
