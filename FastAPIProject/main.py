@@ -23,3 +23,7 @@ app.include_router(app02, prefix="/app02", tags=["app02接口"])
 app.include_router(app03, prefix="/app03", tags=["app03接口-Form表单、文件处理"])
 app.include_router(app04, prefix="/app04", tags=["app04接口- request请求处理"])
 app.include_router(app05, prefix="/app05", tags=["app05接口-ORM模型、数据库操作"])
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8888)
