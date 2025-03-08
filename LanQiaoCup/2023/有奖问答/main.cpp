@@ -13,7 +13,6 @@
 #include <iostream>
 using namespace std;
 
-
 void dfs(int k, int sum, int &ans)
 {
     if(sum == 100 || k >= 31) //100分的时候停止答题
