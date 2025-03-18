@@ -1,0 +1,4 @@
+# ninja log v6
+1	7	1740918776866149036	clean	ad90e366ad70d77b
+1	713	1740918777041056238	CMakeFiles/MyExecutable.dir/main.cpp.o	6dfd3df73afa525f
+716	761	1740918777755735028	MyExecutable	badca28c32359dd9
