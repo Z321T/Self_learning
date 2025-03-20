@@ -13,3 +13,5 @@ Icon\r
 
 .idea/
 *.exe
+
+**/cmake-build-debug/
