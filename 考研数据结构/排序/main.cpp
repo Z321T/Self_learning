@@ -56,21 +56,77 @@ void ShellSort(int arr[], int n)
     }
 }
 
+//交换排序
+//冒泡排序
+void BubbleSort(int arr[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
+//快速排序
+int Partition(int arr[], int low, int high)
+{
+    int pivot = arr[low];
+    while (low < high)
+    {
+        while (low < high && arr[high] >= pivot)
+            high--;
+        arr[low] = arr[high];
+        while (low < high && arr[low] <= pivot)
+            low++;
+        arr[high] = arr[low];
+    }
+    arr[low] = pivot;
+    return low;
+}
+void QuickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
+        int pivot = Partition(arr, low, high);
+        QuickSort(arr, low, pivot - 1);
+        QuickSort(arr, pivot + 1, high);
+    }
+}
+
 
 
 int main()
 {
     int arr[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
+    //插入排序
+    //直接插入排序
     InsertSort(arr, n);
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
     cout << endl;
+    //折半插入排序
     BinaryInsertSort(arr, n);
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
     cout << endl;
+    //希尔排序
     ShellSort(arr, n);
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+    //交换排序
+    //冒泡排序
+    BubbleSort(arr, n);
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+    //快速排序
+    QuickSort(arr, 0, n - 1);
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
     cout << endl;
