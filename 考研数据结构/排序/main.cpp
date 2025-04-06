@@ -143,6 +143,103 @@ void HeapSort(int arr[], int n)
     }
 }
 
+//归并排序
+void Merge(int arr[], int left, int mid, int right)
+{
+    int i = left, j = mid + 1, k = 0;
+    int *temp = new int[right - left + 1];
+    while (i <= mid && j <= right)
+    {
+        if (arr[i] <= arr[j])
+            temp[k++] = arr[i++];
+        else
+            temp[k++] = arr[j++];
+    }
+    while (i <= mid)
+        temp[k++] = arr[i++];
+    while (j <= right)
+        temp[k++] = arr[j++];
+
+    for (int i = left; i <= right; i++)
+        arr[i] = temp[i-left];
+
+    delete[] temp;
+}
+void MergeSort(int arr[], int left, int right)
+{
+    if (left < right)
+    {
+        int mid = left + (right - left) / 2;
+
+        MergeSort(arr, left, mid);
+        MergeSort(arr, mid + 1, right);
+        Merge(arr, left, mid, right);
+    }
+}
+
+//基数排序
+void CountingSort(int arr[], int n, int exp)
+{
+    int *output = new int[n];
+    int count[10] = {0};
+
+    for (int i = 0; i < n; i++)
+        count[(arr[i] / exp) % 10]++;
+
+    for (int i = 1; i < 10; i++)
+        count[i] += count[i - 1];
+
+    for (int i = n - 1; i >= 0; i--)
+    {
+        output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+        count[(arr[i] / exp) % 10]--;
+    }
+
+    for (int i = 0; i < n; i++)
+        arr[i] = output[i];
+
+    delete[] output;
+}
+void RadixSort(int arr[], int n)
+{
+    int max = arr[0];
+    for (int i = 1; i < n; i++)
+        if (arr[i] > max)
+            max = arr[i];
+
+    for (int exp = 1; max / exp > 0; exp *= 10)
+        CountingSort(arr, n, exp);
+}
+
+//计数排序
+void CountingSort(int arr[], int n)
+{
+    int max = arr[0];
+    for (int i = 1; i < n; i++)
+        if (arr[i] > max)
+            max = arr[i];
+
+    int *count = new int[max + 1]();
+    for (int i = 0; i < n; i++)
+        count[arr[i]]++;
+
+    for (int i = 1; i <= max; i++)
+        count[i] += count[i - 1];
+
+    int *output = new int[n];
+    for (int i = n - 1; i >= 0; i--)
+    {
+        output[count[arr[i]] - 1] = arr[i];
+        count[arr[i]]--;
+    }
+
+    for (int i = 0; i < n; i++)
+        arr[i] = output[i];
+
+    delete[] count;
+    delete[] output;
+}
+
 
 
 int main()
@@ -184,6 +281,11 @@ int main()
     cout << endl;
     //堆排序
     HeapSort(arr, n);
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+    //归并排序
+    MergeSort(arr, 0, n - 1);
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
     cout << endl;
