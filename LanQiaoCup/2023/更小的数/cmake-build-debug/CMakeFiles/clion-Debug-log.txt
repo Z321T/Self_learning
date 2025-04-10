@@ -1,6 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -DCMAKE_C_COMPILER=/opt/homebrew/Cellar/gcc/14.2.0_1/bin/gcc-14 -DCMAKE_CXX_COMPILER=/opt/homebrew/Cellar/gcc/14.2.0_1/bin/g++-14 -G Ninja -S /Users/lucky/GitHubproject/Self_learning/LanQiaoCup/2023/更小的数 -B /Users/lucky/GitHubproject/Self_learning/LanQiaoCup/2023/更小的数/cmake-build-debug
-CMake Error at CMakeLists.txt:2 (project):
-  project PROJECT called with incorrect number of arguments
-
-
--- Configuring incomplete, errors occurred!
