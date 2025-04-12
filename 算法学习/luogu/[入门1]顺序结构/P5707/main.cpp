@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main()
@@ -49,12 +50,8 @@ int main()
     }
 
     //输出符合要求的格式化结果
-    if (ans_h/10 == 0) {
-        cout << "0" << ans_h << ":" << ans_m;
-    }
-    else {
-        cout<<ans_h<<":"<<ans_m;
-    }
+    cout << setw(2) << setfill('0') << ans_h << ":"
+         << setw(2) << setfill('0') << ans_m << endl;
 
     return 0;
 }
